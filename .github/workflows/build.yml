@@ -1,0 +1,18 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: pod install
+      - name: Build and test
+        run: set -o pipefail && xcodebuild clean build -workspace uPic.xcworkspace -scheme uPic -sdk macosx -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGN_REQUIRED=NO | xcpretty -c
