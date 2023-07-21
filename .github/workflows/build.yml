@@ -18,8 +18,10 @@ jobs:
         run: set -o pipefail && xcodebuild clean build -workspace uPic.xcworkspace -scheme uPic -sdk macosx -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGN_REQUIRED=NO | xcpretty -c
       - name: list all files
         run: brew install tree && tree
+      - name: create dmg
+        run: brew install create-dmg && create-dmg --volname "uPic" uPic.dmg /Users/runner/Library/Developer/Xcode/DerivedData/uPic-crddiursnoincvfvonukawsqsukj/Build/Products/Release/uPic.app
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: uPic.app
-          path: /Users/runner/Library/Developer/Xcode/DerivedData/uPic-crddiursnoincvfvonukawsqsukj/Build/Products/Release
+          name: uPic
+          path: uPic.dmg
