@@ -34,7 +34,7 @@ jobs:
           # REQUIRED 'target_repo_token' exactly like this!
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
           upstream_sync_branch: master
-          upstream_sync_repo: Homebrew/homebrew-cask
+          upstream_sync_repo: gee1k/uPic
           git_config_pull_rebase: true
           upstream_pull_args: "--ff-only --tags"
 
