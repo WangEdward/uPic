@@ -25,8 +25,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: uPic
-          path: ${DMG_NAME}
+          name: ${{ env.DMG_NAME }}
+          path: ${{ env.DMG_NAME }}
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: ${DMG_NAME}
+          artifacts: ${{ env.DMG_NAME }}
