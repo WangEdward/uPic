@@ -36,7 +36,7 @@ jobs:
           upstream_sync_branch: master
           upstream_sync_repo: gee1k/uPic
           git_config_pull_rebase: true
-          upstream_pull_args: "--ff-only --tags"
+          upstream_pull_args: "--tags"
 
           # Set test_mode true to run tests instead of the true action!!
           # test_mode: true
